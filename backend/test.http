@@ -1,0 +1,43 @@
+### Test Sign Up
+POST http://localhost:3000/api/signup
+Content-Type: application/json
+
+{
+  "username": "testuser1",
+  "password": "testpassword"
+}
+
+#input 1.username 2.password
+#returen null
+#function send input to database 
+
+
+### Test Login
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testpassword"
+}
+
+#input 1.username 2.password
+#returen token
+#function send token to memcached
+
+
+### Test Profile (requires token)
+GET http://localhost:3000/api/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Mzc2MzY3MmM0MjRkMWM5MzM2NmQwNiIsInVzZXJuYW1lIjoidGVzdHVzZXIiLCJpYXQiOjE3NDg0NjMxMTIsImV4cCI6MTc0ODQ2NjcxMn0.9FXPvRvGYW8BlCJivMk1VICf7klJLL7nVO5vwgQ7ZDQ
+
+### Test Home (requires token)
+GET http://localhost:3000/api/home
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Mzc2MzY3MmM0MjRkMWM5MzM2NmQwNiIsImlhdCI6MTc0ODQ2MTE4OCwiZXhwIjoxNzQ4NDY0Nzg4fQ.LT9OOfYkJ8coR4XNEZlPR-ziUGzsL_-Ye0_LiDX4n8o
+
+### Test Setting (requires token)
+GET http://localhost:3000/api/setting
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Mzc2MzY3MmM0MjRkMWM5MzM2NmQwNiIsImlhdCI6MTc0ODQ2MTE4OCwiZXhwIjoxNzQ4NDY0Nzg4fQ.LT9OOfYkJ8coR4XNEZlPR-ziUGzsL_-Ye0_LiDX4n8o
+
+### Test Logout
+POST http://localhost:3000/api/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Mzc2MzY3MmM0MjRkMWM5MzM2NmQwNiIsImlhdCI6MTc0ODQ2MTE4OCwiZXhwIjoxNzQ4NDY0Nzg4fQ.LT9OOfYkJ8coR4XNEZlPR-ziUGzsL_-Ye0_LiDX4n8o

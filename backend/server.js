@@ -11,7 +11,7 @@ const app = express(); //ایجاد اپلیکیشن
 //اجازه اتصال فرانت به بک
 app.use(
   cors({
-    origin: "http://localhost:8082", // آدرس فرانت‌اندت
+    origin: ["http://localhost:8081", "http://localhost:8082" , "http://localhost:8083" ], // آدرس فرانت‌اندت
     credentials: true, // اجازه ارسال کوکی
   })
 );

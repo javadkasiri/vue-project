@@ -1,6 +1,6 @@
 const User = require("../models/User"); //مدل مانگو مربوط به کاربران
 const bcrypt = require("bcryptjs"); //برای هش کردن رمز عبور
-const jwt = require("jsonwebtoken"); // برای تولید توکن JWT 
+const jwt = require("jsonwebtoken"); // برای تولید توکن JWT
 const memcached = require("../cache/memcachedClient"); // کلاینت اتصال به ممکچ برای کش کردن توکن‌ها.
 
 const SECRET = process.env.JWT_SECRET || "secret_key"; // اگر در .env مقدار جی دلیو تی سکرت کی نبود، مقدار پیش‌فرض  استفاده می‌شود.
@@ -38,7 +38,7 @@ exports.login = async (req, res) => {
 
   //تولید توکن JWT
   const token = jwt.sign({ id: user._id, username: user.username }, SECRET, {
-    expiresIn: "1h",
+    expiresIn: "12h",
   });
 
   //ذخیره توکن در Memcached
@@ -56,8 +56,7 @@ exports.login = async (req, res) => {
 
   // پاسخ موفق
   res.status(200).json({ message: "Login successful" });
-
-  };
+};
 
 exports.changePassword = async (req, res) => {
   const userId = req.user.id;
